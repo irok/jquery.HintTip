@@ -1,6 +1,6 @@
 {
   "name": "jquery.HintTip",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "tooltip for hint",
   "main": "index.js",
   "scripts": {
