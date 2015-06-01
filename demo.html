@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>jquery.HintTip</title>
+<link rel="stylesheet" href="src/jquery.hinttip.css" type="text/css" />
+<style>
+body {
+    padding: 50px;
+}
+h1 {
+    margin: 0 0 -30px;
+}
+input {
+    width: 300px;
+    margin: 20px;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="src/jquery.hinttip.js"></script>
+<script>
+$(function() {
+    $('input').HintTip({
+        show: 'focus',
+        hide: 'blur',
+        sync: 'keyup',
+        html: function() {
+            var input = this.context;
+            return (
+                '<span style="font-size:80%;">あと' +
+                '<span style="color:blue; font-weight:bold; font-size:120%;">' +
+                (input.maxLength - input.value.length) +
+                '</span>文字</span>'
+            );
+        }
+    });
+    $('span[title]').HintTip({
+      zIndex: 100
+    });
+});
+
+</script>
+</head>
+<body>
+<h1><span title="&lt;b&gt;title属性&lt;/b&gt;の値が表示されますよ">ただのツールチップとしても使えます</span></h1>
+<p><input type="text" maxlength="70"></p>
+<p><input type="password" maxlength="30"></p>
+</body>
+</html>
