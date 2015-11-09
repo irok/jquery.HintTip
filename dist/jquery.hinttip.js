@@ -1,18 +1,18 @@
 /**
- *  v1.0.0
+ *  v1.1.0
  *
  * Copyright 2015 GMO Media,Inc.
  * Released under the MIT license
  *
- * Date: 2015-06-01T10:59:16Z
+ * Date: 2015-11-09T12:45:24Z
  */
 (function($, PluginName) {
     var vspacing = 9,
         default_zIndex = 1;
 
     $[PluginName] = function($target, opts) {
-        this.$self = $('<span />').addClass(PluginName).hide();
-        this.$target = $target.before(this.$self);
+        this.$self = $('<span />').addClass(PluginName).hide().appendTo($('body'));
+        this.$target = $target;
 
         opts = opts || {};
         this.html = opts.html || (function() {
@@ -39,15 +39,21 @@
     $[PluginName].prototype = {
         update: function() {
             var s = this.$self,
-                t = this.$target;
+                t = this.$target,
+                left;
             s.html(
                 typeof this.html === 'function' ? this.html.apply(t) : this.html
             );
+            if (t.outerWidth() > s.outerWidth()) {
+                left = t.offset().left + parseInt(t.css('marginLeft')) + t.outerWidth()  - s.outerWidth();
+            } else {
+                left = t.offset().left + parseInt(t.css('marginLeft')) + t.outerWidth() / 2 - s.outerWidth() * 3/4;
+            }
             s.css({
                 zIndex: this.zIndex,
                 display: 'inline-block',
-                top:   t.position().top  + parseInt(t.css('marginTop'))  + t.outerHeight() + vspacing,
-                left:  t.position().left + parseInt(t.css('marginLeft')) + t.outerWidth()  - s.outerWidth(),
+                top:   t.offset().top  + parseInt(t.css('marginTop'))  + t.outerHeight() + vspacing,
+                left:  left,
                 width: 'auto'
             });
             return this;
