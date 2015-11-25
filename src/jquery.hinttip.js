@@ -37,14 +37,14 @@
                 typeof this.html === 'function' ? this.html.apply(t) : this.html
             );
             if (t.outerWidth() > s.outerWidth()) {
-                left = t.offset().left + parseInt(t.css('marginLeft')) + t.outerWidth()  - s.outerWidth();
+                left = t.offset().left + t.outerWidth() - s.outerWidth();
             } else {
-                left = t.offset().left + parseInt(t.css('marginLeft')) + t.outerWidth() / 2 - s.outerWidth() * 3/4;
+                left = t.offset().left + t.outerWidth() / 2 - s.outerWidth() * 3/4;
             }
             s.css({
                 zIndex: this.zIndex,
                 display: 'inline-block',
-                top:   t.offset().top  + parseInt(t.css('marginTop'))  + t.outerHeight() + vspacing,
+                top:   t.offset().top + t.outerHeight() + vspacing,
                 left:  left,
                 width: 'auto'
             });

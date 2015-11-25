@@ -1,10 +1,10 @@
 /**
- *  v1.1.0
+ *  v1.1.1
  *
  * Copyright 2015 GMO Media,Inc.
  * Released under the MIT license
  *
- * Date: 2015-11-09T12:45:24Z
+ * Date: 2015-11-25T13:20:46Z
  */
 (function($, PluginName) {
     var vspacing = 9,
@@ -45,14 +45,14 @@
                 typeof this.html === 'function' ? this.html.apply(t) : this.html
             );
             if (t.outerWidth() > s.outerWidth()) {
-                left = t.offset().left + parseInt(t.css('marginLeft')) + t.outerWidth()  - s.outerWidth();
+                left = t.offset().left + t.outerWidth() - s.outerWidth();
             } else {
-                left = t.offset().left + parseInt(t.css('marginLeft')) + t.outerWidth() / 2 - s.outerWidth() * 3/4;
+                left = t.offset().left + t.outerWidth() / 2 - s.outerWidth() * 3/4;
             }
             s.css({
                 zIndex: this.zIndex,
                 display: 'inline-block',
-                top:   t.offset().top  + parseInt(t.css('marginTop'))  + t.outerHeight() + vspacing,
+                top:   t.offset().top + t.outerHeight() + vspacing,
                 left:  left,
                 width: 'auto'
             });
