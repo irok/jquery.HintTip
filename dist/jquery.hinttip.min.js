@@ -1,5 +1,5 @@
 /*!
- *  v1.1.1
+ *  v1.1.2
  * (c) 2015 GMO Media,Inc.
  * MIT license
  */

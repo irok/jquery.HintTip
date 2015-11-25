@@ -1,8 +1,8 @@
 {
   "name": "jquery.HintTip",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "tooltip for hint",
-  "main": "index.js",
+  "main": "dist/jquery.hinttip.js",
   "scripts": {
     "test": "gulp jshint",
     "postinstall": "gulp"
